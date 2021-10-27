@@ -30,8 +30,9 @@ create table tblContato(
 	idContato int not null auto_increment primary key,
 	email varchar(100),
     telefone varchar(45),
-    ceelular varchar(45)
+    celular varchar(45)
 );
+drop table tblContato;
 
 show tables;
 

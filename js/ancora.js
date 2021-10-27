@@ -17,7 +17,7 @@
           var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
           var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
            if ($target) {
-             var targetOffset = $target.offset().top -120;
+             var targetOffset = $target.offset().top -160;
              $(this).click(function() {
                $('html, body').animate({scrollTop: targetOffset}, 700);
                return false;

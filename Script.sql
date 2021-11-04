@@ -22,7 +22,6 @@ create table tblCategoria(
 create table tblUsuario(
 	idUsuario int not null auto_increment primary key,
 	nome varchar(80),
-    nomeUsuario varchar(80),
     senha varchar(45)
 );
 
@@ -32,8 +31,10 @@ create table tblContato(
     telefone varchar(45),
     celular varchar(45)
 );
-drop table tblContato;
+
+drop table tblUsuario;
+
 
 show tables;
 
-select * from tblCategoria;
+select * from tblUsuario;

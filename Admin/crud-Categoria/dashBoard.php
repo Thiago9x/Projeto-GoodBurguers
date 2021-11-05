@@ -62,7 +62,7 @@
 </head>
 <body>
     <?php
-    require_once(SRC."../header.php");
+    require_once(SRC."../dashboard/header.php");
     ?>
     <main>
         <!-- <div id="containerModal">
@@ -132,6 +132,6 @@
             </table>
         </div>
     </main>
-    <?php require_once("../footer.php");?>
+    <?php require_once("../dashboard/footer.php");?>
 </body>
 </html>

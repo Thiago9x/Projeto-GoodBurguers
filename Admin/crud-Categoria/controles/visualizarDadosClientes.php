@@ -5,7 +5,7 @@
     Autor: Thiago
 ********************************************/ 
 
-function visualizarCliente($id) {
+function visualizarCategoria($id) {
     //Import do arquivo de configuração de varaiveis e constantes
     require_once('functions/config.php');
 
@@ -13,14 +13,14 @@ function visualizarCliente($id) {
     require_once(SRC.'bd/listarcliente.php');
 
     // o id esta sendo encaminhado pela index, no link que foi realizado na iimagem do excluir
-    $idCliente = $id;
+    $idCategoria = $id;
 
     //Chama a função excluir e encaminha o ID que será removido do BD
-    $dadosCliente = buscar($idCliente);
+    $dadosCategoria = buscar($idCategoria);
 
-    if($rsCliente = mysqli_fetch_assoc($dadosCliente))
+    if($rsCategoria = mysqli_fetch_assoc($dadosCategoria))
     {
-        return $rsCliente;
+        return $rsCategoria;
     }
     else{
         return false;

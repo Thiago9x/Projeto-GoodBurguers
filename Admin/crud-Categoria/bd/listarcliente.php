@@ -8,9 +8,22 @@
 //Import do arquivo de conexão com o BD
 require_once(SRC.'bd/conexaoMysql.php');
 
-function listarEstados()
+function listar()
 {
-    $sql = "select * from tblEstado order by nome";
+    $sql = "select * from tblCategoria";
+
+    //abre a conexao com o bd
+    $conexao = conexaoMysql();
+
+    //solicita ao bd a execução do script sql
+    $select = mysqli_query($conexao, $sql);
+     
+    return $select;
+}
+function buscar($idCategoria){
+    $sql = "select * 
+        from tblCategoria 
+        where idCategoria =". $idCategoria;
 
     //abre a conexao com o bd
     $conexao = conexaoMysql();

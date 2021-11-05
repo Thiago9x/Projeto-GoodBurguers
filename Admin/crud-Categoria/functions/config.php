@@ -5,13 +5,13 @@
     Autor: Marcel
 *********************************************/
 //constante para indicar a pasta raiz do servidor + a estrutara de diretório até o meu projeto
-define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t20212/thiago_trentin/Aula13-Mysql/crud/');
+define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t2021/Back-End/Projeto-GoodBurguers/Admin/crud-Categoria/');
 
 //Variaveis e constantes para conexão com o Banco de Dados MySql
 const BD_SERVER = 'localhost';
 const BD_USER = 'root';
 const BD_PASSWORD = 'bcd127';
-const BD_DATABASE = 'dbcontatos20212t';
+const BD_DATABASE = 'dbgoodburguers';
 
 
 //Mensagens de Erro do sistema
@@ -27,7 +27,7 @@ const BD_MSG_ERRO = "<script>alert('ERRO: Não foi possivel manipular os dados n
 
 const BD_MSG_EXCLUIR = "<script>
                             alert('Registro foi excluido com êxito!!');
-                            window.location.href='../index.php';
+                            window.location.href='../dashboard.php';
                         </script>";
 
 

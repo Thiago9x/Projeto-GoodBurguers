@@ -22,14 +22,17 @@
         </div>
         <div id="menu">
             <div id="spaceItensmenu">
+            
             <div class="itensmenu">
                 <img class="imgMenu" src="img/produtos.png" alt="">
                 <h3>Adm. de Produtos</h3>
             </div>
+            <a href="./crud-Categoria/dashboard.php">
             <div class="itensmenu">
-                <img class="imgMenu" src="img/categorias.png" alt="">
-                <h3>Adm. de Categorias</h3>
-            </div>
+                    <img class="imgMenu" src="img/categorias.png" alt="">
+                    <h3>Adm. de Categorias</h3>
+                </div>
+            </a>
             <div class="itensmenu">
                 <img class="imgMenu" src="img/contatos.png" alt="">
                 <h3>Contatos</h3>

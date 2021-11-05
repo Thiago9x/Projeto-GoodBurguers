@@ -12,17 +12,17 @@
     //Import do arquivo para inserir no BD
     require_once(SRC.'bd/listarcliente.php');
 
-    // o id esta sendo encaminhado pela index, no link que foi realizado na iimagem do excluir
-    $idCliente = $_GET["id"];
+    // o id esta sendo encaminhado pela index, no link que foi realizado na imagem do excluir
+    $idCategoria = $_GET["id"];
 
     //Chama a função excluir e encaminha o ID que será removido do BD
-    $dadosCliente = buscar($idCliente);
+    $dadosCategorias = buscar($idCategoria);
 
-    if($rsCliente = mysqli_fetch_assoc($dadosCliente))
+    if($rsCategorias = mysqli_fetch_assoc($dadosCategorias))
     {
         session_start();
-        $_SESSION['cliente'] = $rsCliente;
-        header("location:../index.php");
+        $_SESSION['Categoria'] = $rsCategorias;
+        header("location:../dashboard.php");
     }
     else
     

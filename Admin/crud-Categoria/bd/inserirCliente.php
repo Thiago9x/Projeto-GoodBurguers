@@ -8,29 +8,15 @@
 //Import do arquivo de conexão com o BD
 require_once('../bd/conexaoMysql.php');
 
-function inserir ($arrayCliente)
+function inserir ($arrayCategoria)
 {
-    $sql = "insert into tblcliente
+    $sql = "insert into tblCategoria
                 (
-                    nome,
-                    IdEstado,
-                    rg,
-                    cpf,
-                    telefone,
-                    celular,
-                    email,
-                    obs
+                    nome
                 )
                 values
                 (
-                    '". $arrayCliente['nome'] ."',
-                    '". $arrayCliente[idEstado] ."',
-                    '". $arrayCliente['rg'] ."',
-                    '". $arrayCliente['cpf'] ."',
-                    '". $arrayCliente['telefone'] ."',
-                    '". $arrayCliente['celular'] ."',
-                    '". $arrayCliente['email'] ."',
-                    '". $arrayCliente['obs'] ."'
+                    '". $arrayCategoria['nome'] ."'
                 )
             ";
 

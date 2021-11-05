@@ -4,6 +4,8 @@ show databases;
 
 use dbGoodBurguers;
 
+show tables;
+
 create table tblProdutos (
 	idProdutos int not null auto_increment primary key,
     nome varchar(100) not null,
@@ -11,7 +13,13 @@ create table tblProdutos (
 	descricao TEXT not null,
     imagem varchar(45) not null,
     destaque tinyint,
-    desconto tinyint
+    desconto tinyint,
+    
+    idCategoria int not null,
+    constraint FK_idCategoria_tblProdutos 
+    foreign key (idCategoria)
+    references tblCategoria (idCategoria)
+    
 );
 
 create table tblCategoria(
@@ -32,8 +40,8 @@ create table tblContato(
     telefone varchar(45),
     celular varchar(45)
 );
-drop table tblContato;
 
 show tables;
 
 select * from tblCategoria;
+drop  table tblProdutos;

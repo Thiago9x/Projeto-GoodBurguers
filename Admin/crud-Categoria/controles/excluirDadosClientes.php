@@ -13,12 +13,12 @@
     require_once(SRC.'bd/excluirCliente.php');
 
     // o id esta sendo encaminhado pela index, no link que foi realizado na iimagem do excluir
-    $idCliente = $_GET["id"];
+    $idCategoria = $_GET["id"];
 
     //Chama a função excluir e encaminha o ID que será removido do BD
-    excluir($idCliente);
+    excluir($idCategoria);
 
-    if(excluir($idCliente))
+    if(excluir($idCategoria))
     {
         echo(BD_MSG_EXCLUIR);
     }

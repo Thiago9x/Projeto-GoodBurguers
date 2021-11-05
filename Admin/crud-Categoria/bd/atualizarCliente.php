@@ -6,22 +6,14 @@
 *************************************************************************/
 //Import do arquivo de conexão com o BD
 require_once('../bd/conexaoMysql.php');
-function editar(array $cliente)
+function editar($arrayCategoria)
 {
-    $sql = "update tblcliente set
-                    nome =' ".$cliente['nome']."',
-                    idEstado =".$cliente[idEstado].",
-                    rg = '". $cliente['rg'] ."',
-                    cpf = '". $cliente['cpf'] ."',
-                    telefone = '". $cliente['telefone'] ."',
-                    celular = '". $cliente['celular'] ."',
-                    email = '". $cliente['email'] ."',
-                    obs = '". $cliente['obs'] ."'
-                    
-                    
-            where idclient = ".$cliente['id'];
+    // throw new Exception();
+    $sql = "update tblCategoria set
+                    nome =' ". $arrayCategoria['nome']."'
+                where idCategoria = ".$arrayCategoria['id'];
 
-
+        // var_dump($arrayCategoria);   
             echo $sql;
             // var_dump($arrayCliente);
             //Chamando a função que estabelece a conexão com o BD 

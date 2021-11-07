@@ -5,7 +5,7 @@
     Autor: Marcel
 *********************************************/
 //constante para indicar a pasta raiz do servidor + a estrutara de diretório até o meu projeto
-define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t2021/Back-End/Projeto-GoodBurguers/Admin/crud-Categoria/');
+define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t2021/Back-End/Projeto-GoodBurguers/Admin/');
 
 //Variaveis e constantes para conexão com o Banco de Dados MySql
 const BD_SERVER = 'localhost';
@@ -23,7 +23,7 @@ const ERRO_MAXLENGHT = "<script>alert('Não foi possivel realizar a operção, p
 
 //Mensagens de aceitação e validação de dados no BD
 const BD_MSG_INSERIR = "Registro salvo com sucesso no Banco de Dados!";
-<<<<<<< HEAD:Admin/crud-Categoria/functions/config.php
+
 const BD_MSG_ERRO = "<script>alert('ERRO: Não foi possivel manipular os dados no Banco de Dados!')</script>";
 
 const BD_MSG_EXCLUIR = "<script>
@@ -32,7 +32,7 @@ const BD_MSG_EXCLUIR = "<script>
                         </script>";
 
 
-=======
+
 const BD_MSG_EXCLUIR = "
             <script>
                 alert('Registro excluido com sucesso do Banco de Dados');
@@ -46,5 +46,5 @@ define('NOME_DIRETORIO_FILE', "arquivos/");
 $extensoesPermitidasFile = array  ("image/png", "image/jpg", "image/jpeg");
 define('EXTENSOES_PERMITIDAS', $extensoesPermitidasFile);
 const TAMANHO_FILE = "5120";
->>>>>>> 7542e95bdd640ea25f5731ddb4c92aaa4a762798:Admin/crud-Usuarios/functions/config.php
+
 ?>

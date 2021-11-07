@@ -6,6 +6,8 @@ use dbGoodBurguers;
 
 show tables;
 
+select * from tblCategoria;
+
 create table tblProdutos (
 	idProdutos int not null auto_increment primary key,
     nome varchar(100) not null,
@@ -32,25 +34,15 @@ create table tblUsuario(
 	nome varchar(80),
     senha varchar(45)
 );
-
+drop table tblUsuario;
 create table tblContato(
 	idContato int not null auto_increment primary key,
 	email varchar(100),
     telefone varchar(45),
     celular varchar(45)
 );
-<<<<<<< HEAD
 
 show tables;
-
+desc tblUsuario;
 select * from tblCategoria;
 drop  table tblProdutos;
-=======
-
-drop table tblUsuario;
-
-
-show tables;
-
-select * from tblUsuario;
->>>>>>> 7542e95bdd640ea25f5731ddb4c92aaa4a762798

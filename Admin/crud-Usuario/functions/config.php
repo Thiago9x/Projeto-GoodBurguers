@@ -5,7 +5,7 @@
     Autor: Marcel
 *********************************************/
 //constante para indicar a pasta raiz do servidor + a estrutara de diretório até o meu projeto
-define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t2021/Back-End/Projeto-GoodBurguers/Admin/crud-Categoria/');
+define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t2021/Back-End/Projeto-GoodBurguers/Admin/crud-Usuario/');
 
 //Variaveis e constantes para conexão com o Banco de Dados MySql
 const BD_SERVER = 'localhost';

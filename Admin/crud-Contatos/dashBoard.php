@@ -1,8 +1,9 @@
 <?php 
     $nome = (string) null;
+    $celular = (string) null;
+    $email = (string) null;
     $id = (int) 0;
     //essa variavel será utilizada para definir o modo de manipulação com BD
-    
     $modo = (string) "Salvar";
     
     //import do arquivo de configuração de variaveis e constantes
@@ -22,6 +23,8 @@
 
         $id = $_SESSION['Categoria']['idCategoria'];
         $nome = $_SESSION['Categoria']['nome'];
+        $celular = (string) null;
+        $email = (string) null;
         $modo = (string) "Atualizar";
 
         unset($_SESSION['Categoria']);

@@ -26,17 +26,19 @@
                     <img class="imgMenu" src="img/produtos.png" alt="">
                     <h3>Adm. de Produtos</h3>
                 </div>
-            <a href="../crud-Categoria/dashboard.php">
+            <a href="../crud-Categoria/dashBoard.php">
             <div class="itensmenu">
                     <img class="imgMenu" src="img/categorias.png" alt="">
                     <h3>Adm. de Categorias</h3>
                 </div>
             </a>
+            <a href="../crud-Contato/dashBoard.php">
             <div class="itensmenu">
                 <img class="imgMenu" src="img/contatos.png" alt="">
                 <h3>Contatos</h3>
             </div>
-            <a href="../crud-Usuario/dashboard.php">
+            </a>
+            <a href="../crud-Usuario/dashBoard.php">
                 <div class="itensmenu">
                     <img class="imgMenu" src="img/usuarios.png" alt="">
                     <h3>Usuarios</h3>

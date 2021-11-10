@@ -108,12 +108,13 @@
             <table id="tblConsulta" >
                 <tr>
                     <td id="tblTitulo" colspan="5">
-                        <h1> Consulta de Usuario</h1>
+                        <h1> Consulta de Usuarios</h1>
                     </td>
                 </tr>
                 <tr id="tblLinhas">
                     <td class="tblColunas destaque"> Nome </td>
-                    <td class="tblColunas destaque" colspan="2"> Senha </td>
+                    <td class="tblColunas destaque"> Senha </td>
+                    <td class="tblColunas destaque"> Ações</td>
                 </tr>
                 
                 <?php 
@@ -132,10 +133,7 @@
                         </a>
                         <a onclick="return confirm('Tem certeza que deseja ecluir?');" href="./controles/excluirDadosUsuarios.php?id=<?=$rsUsuarios['idUsuario']?>">
                             <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
-                        </a>
-                        
-                            <img src="img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar" data-id="<?=$rsUsuarios['idUsuario']?>">
-       
+                    </a>
                     </td>
                 </tr>
                 <?php 

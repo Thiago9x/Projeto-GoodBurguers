@@ -121,9 +121,6 @@
                         <a onclick="return confirm('Tem certeza que deseja ecluir?');" href="./controles/excluirDadosCategorias.php?id=<?=$rsCategorias['idCategoria']?>">
                             <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                         </a>
-                        
-                            <img src="img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar" data-id="<?=$rsCategorias['idCategoria']?>">
-       
                     </td>
                 </tr>
                 <?php 

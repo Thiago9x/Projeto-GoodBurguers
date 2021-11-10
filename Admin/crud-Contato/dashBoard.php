@@ -78,7 +78,7 @@
         </div> -->
         <div id="cadastro"> 
             <div id="cadastroTitulo"> 
-                <h1> Categorias </h1>
+                <h1> Contatos </h1>
             </div>
             <div id="cadastroInformacoes">
                 <form action="controles/recebeDadosCategorias.php?modo=<?=$modo?>&id=<?=$id?>" name="frmCadastro" method="post" >
@@ -101,7 +101,7 @@
             <table id="tblConsulta" >
                 <tr>
                     <td id="tblTitulo" colspan="5">
-                        <h1> Consulta de Categorias</h1>
+                        <h1> Consulta de Contatos</h1>
                     </td>
                 </tr>
                 <tr id="tblLinhas">

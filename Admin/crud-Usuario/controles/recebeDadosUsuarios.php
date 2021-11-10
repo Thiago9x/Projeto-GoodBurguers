@@ -30,10 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     
     //Validação de campos obrigatórios
     if ($nome == null || $senha == null)
-        echo("<script> 
-                alert('". ERRO_CAIXA_VAZIA ."'); 
-                window.history.back();    
-            </script>");
+        echo(ERRO_CAIXA_VAZIA);
     //Validação de qtde de caracteres
     //strlen() retorna a qtde de caracteres de uma varaivel
     else

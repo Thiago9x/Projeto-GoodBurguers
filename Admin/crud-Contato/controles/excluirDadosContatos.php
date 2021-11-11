@@ -10,15 +10,15 @@
     require_once('../functions/config.php');
 
     //Import do arquivo para exluir no BD
-    require_once(SRC.'/bd/excluirCategoria.php');
+    require_once(SRC.'/bd/excluirContato.php');
 
     // o id esta sendo encaminhado pela index, no link que foi realizado na iimagem do excluir
-    $idCategoria = $_GET["id"];
+    $idContato = $_GET["id"];
 
     //Chama a função excluir e encaminha o ID que será removido do BD
-    excluir($idCategoria);
+    excluir($idContato);
 
-    if(excluir($idCategoria))
+    if(excluir($idContato))
     {
         echo(BD_MSG_EXCLUIR);
     }

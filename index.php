@@ -1,3 +1,28 @@
+<?php
+session_start();
+    $nome = (string) null;
+    $email = (string) null;
+    $telefone = (string) null;
+    $id = (int) 0;
+    //essa variavel será utilizada para definir o modo de manipulação com BD
+    $modo = (string) "Salvar";
+    
+    //import do arquivo de configuração de variaveis e constantes
+    require_once('Admin/crud-Contato/functions/config.php');    
+
+    require_once('Admin/crud-Contato/bd/conexaoMysql.php');  
+    conexaoMysql();  
+
+    if(isset($_SESSION['contato'])){
+        $nome = $_SESSION['contato']['nome'];
+        $email = $_SESSION['contato']['email'];
+        $telefone = $_SESSION['contato']['telefone'];
+        $modo = "Salvar";
+        unset($_SESSION['contato']);
+    }
+    // var_dump($_SESSION['Contato']);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -61,7 +86,7 @@
 
     
     <!-- Div conteudo principal -->
-    <form name="frmConteudo" action="">
+    <form name="frmConteudo" action="./Admin/crud-Contato/controles/recebeDadosContatos.php?modo=<?=$modo?>&id=<?=$id?>" method="post">
         <!-- Corpo - Conteudo -->
         <main>
             <!-- menu hamurguer e campo de pesquisa  -->
@@ -308,17 +333,17 @@
                         <h1 class="tituloConteudo">Entre em Contato</h1>
                         <div class="espacoContatos">
                         <label for="" class="lblcontatos">Nome: </label>
-                        <input class="txtContatos" type="text" placeholder="Digite seu Nome" maxlength="100">
+                        <input class="txtContatos" name="txtNome" type="text" placeholder="Digite seu Nome" maxlength="100" value="<?=$nome?>">
                         </div>
                         <div class="espacoContatos">
                             <label for="" class="lblcontatos">E-mail: </label>
-                            <input class="txtContatos" type="text" placeholder="Digite seu Nome" maxlength="100">
+                            <input class="txtContatos" name="txtEmail" type="text" placeholder="Digite seu Nome" maxlength="100" value="<?=$email?>">
                         </div>
                         <div class="espacoContatos">
                             <label for="" class="lblcontatos">Telefone: </label>
-                            <input class="txtContatos" type="text" placeholder="Digite seu Nome" maxlength="100">
+                            <input class="txtContatos" name="txtTelefone" type="text" placeholder="Digite seu Nome" maxlength="100" value="<?=$telefone?>">
                         </div>
-                            <input id="btnEnviar" type="submit" value="Enviar">
+                            <input id="btnEnviar" type="submit" value="<?=$modo?>">
                     </div>
                 </div>
             </div>

@@ -8,10 +8,10 @@
 //Import do arquivo de conexão com o BD
 require_once(SRC.'/bd/conexaoMysql.php');
 
-function excluir($idCategoria)
+function excluir($idContato)
 {
-    $sql = "delete from tblCategoria
-                where idCategoria =". $idCategoria;
+    $sql = "delete from tblContato
+                where idContato =". $idContato;
     
     //Chamando a função que estabelçece a conexão com o BD 
     $conexao = conexaoMysql();

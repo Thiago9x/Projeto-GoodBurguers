@@ -10,7 +10,7 @@ require_once(SRC.'bd/conexaoMysql.php');
 
 function listar()
 {
-    $sql = "select * from tblCategoria";
+    $sql = "select * from tblContato";
 
     //abre a conexao com o bd
     $conexao = conexaoMysql();
@@ -20,10 +20,10 @@ function listar()
      
     return $select;
 }
-function buscar($idCategoria){
+function buscar($idContato){
     $sql = "select * 
-        from tblCategoria 
-        where idCategoria =". $idCategoria;
+        from tblContato 
+        where idContato =". $idContato;
 
     //abre a conexao com o bd
     $conexao = conexaoMysql();

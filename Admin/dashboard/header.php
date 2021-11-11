@@ -45,9 +45,12 @@
                 </div>
             </a>
             </div>
+            <a href="../../index.php">
             <div class="itensmenu">
                 <img class="imgMenu" src="img/sair.png" alt="">
                 <h3>Sair</h3>
+                </a>
             </div>
+           
         </div>
 </header>

@@ -6,12 +6,14 @@
 *************************************************************************/
 //Import do arquivo de conexão com o BD
 require_once(SRC.'bd/conexaoMysql.php');
-function editar($arrayCategoria)
+function editar($arrayContato)
 {
     // throw new Exception();
     $sql = "update tblCategoria set
-                    nome =' ". $arrayCategoria['nome']."'
-                where idCategoria = ".$arrayCategoria['id'];
+                    email = '".$arrayContato['email']."',
+                    nome = '".$arrayContato['nome']."',
+                    telefone = '".$arrayContato['telefone']."',
+                where idContato = ".$arrayContato['id'];
 
         // var_dump($arrayCategoria);   
             echo $sql;

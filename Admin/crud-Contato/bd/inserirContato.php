@@ -8,15 +8,19 @@
 //Import do arquivo de conexão com o BD
 require_once(SRC.'bd/conexaoMysql.php');
 
-function inserir ($arrayCategoria)
+function inserir ($arrayContato)
 {
-    $sql = "insert into tblCategoria
+    $sql = "insert into tblContato
                 (
-                    nome
+                    email,
+                    nome,
+                    telefone
                 )
                 values
                 (
-                    '". $arrayCategoria['nome'] ."'
+                    '". $arrayContato['email'] ."',
+                    '". $arrayContato['nome'] ."',
+                    '". $arrayContato['telefone'] ."'
                 )
             ";
 

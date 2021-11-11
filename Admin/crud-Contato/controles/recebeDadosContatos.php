@@ -8,12 +8,17 @@
 require_once('../functions/config.php');
 
 //Import do arquivo para inserir no BD
-require_once(SRC.'bd/inserirCategoria.php');
+require_once(SRC.'bd/inserirContato.php');
 
-require_once(SRC.'bd/atualizarCategoria.php');
+require_once(SRC.'bd/atualizarContato.php');
+
+
 
 //Declaração de variaveis
+$email = (string) null;
 $nome = (string) null;
+$telefone = (string) null;
+
 
 if(isset($_GET['id']))
 $id = (int) $_GET['id'];
@@ -24,17 +29,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     //Recebe os dados encaminhado pelo Formulário através do metdo POST
     $nome = $_POST['txtNome'];
-    $id=(int) $_GET['id'];
+    $email = $_POST['txtEmail'];
+    $telefone = $_POST['txtTelefone'];
     
     //Validação de campos obrigatórios
-    if ($nome == null)
+    if ($email == null|| $nome == null || $telefone == null)
         echo("<script> 
                 alert('". ERRO_CAIXA_VAZIA ."'); 
                 window.history.back();    
             </script>");
     //Validação de qtde de caracteres
     //strlen() retorna a qtde de caracteres de uma varaivel
-    elseif (strlen($nome)>100)
+    elseif (strlen($email)>100)
          echo("<script> 
                 alert('". ERRO_MAXLENGHT ."'); 
                 window.history.back();    
@@ -44,37 +50,27 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         //Local para enviar os dados para o Banco de Dados
         
         //Criação de um Array para encaminhar a função de inserir
-        $arrayCategoria = array (
+        $arrayContato = array (
+            "email"     => $email,
             "nome"      => $nome,
+            "telefone"  => $telefone,
+
             "id"        => $id
         );
+  
         // chama a função inserir do arquivo inserirCliente.php 
         if(strtoupper($_GET['modo'])== 'SALVAR')
         {
         //Chama a função inserir do arquivo inserirCliente.php, e encaminha o array com os dados do cliente    
-        if (inserir($arrayCategoria))
+        if (inserir($arrayContato))
             echo("
                 <script>
                     alert('". BD_MSG_INSERIR ."');
-                    window.location.href = '../dashboard.php';
+                    window.location.href = '../../../index.php';
                 </script>
             ");
         else
             echo(BD_MSG_ERRO );
-        }
-        elseif(strtoupper($_GET['modo'])== 'ATUALIZAR'){
-            if (editar($arrayCategoria)){
-                echo("
-                <script>
-                    alert('". BD_MSG_INSERIR ."');
-                    window.location.href = '../dashboard.php';
-                </script>
-            ");
-            }
-            else
-            {
-                echo( BD_MSG_ERRO);
-            }
         }
     }
     

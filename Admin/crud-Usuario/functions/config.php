@@ -29,6 +29,12 @@ const BD_MSG_EXCLUIR = "
                 alert('Registro excluido com sucesso do Banco de Dados');
                 window.location.href='../dashboard.php';
             </script>";
+
+const LOGIN_MSG_INVALIDO = "
+            <script>
+                alert('Usuário ou senha invalidos!!!');
+                window.location.href='../index.php';
+            </script>";
 const BD_MSG_ERRO = "ERRO: Não foi possivel manipular os dados no Banco de Dados!";
 
 

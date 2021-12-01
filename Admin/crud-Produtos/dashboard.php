@@ -4,19 +4,12 @@
 
     //Declaração das variaveis para o formulário
     $nome = (string) null;
-    $telefone = (string) null;
-    $celular = (string) null;
-    $rg = (string) null;
-    $cpf = (string) null;
-    $email = (string) null;
-    $obs = (string) null;
-    $foto = (string) null;
+    $imagem = (string) null;
+    $valor = (string) null;
+    $destaque = (string) null;
+    $desconto = (string) null;
+    $descricao = (string) null;
     $id = (int) 0;
-    
-    //Variaveis para trazer os valores do Estado 
-    //para a edição 
-    $idEstado = (int) null;
-    $sigla = (string) "Selecione um Item";
 
     //Essa variavel será utilizada para definir
     //o modo de manipulação com o banco de dados
@@ -31,31 +24,24 @@
     //require_once(SRC.'bd/conexaoMysql.php');
     //conexaoMysql();
 
-    require_once(SRC.'controles/exibeDadosClientes.php');
+    require_once(SRC.'controles/exibeDadosProdutos.php');
 
-    //import do arquivo que lista todos os estados do BD
-    require_once(SRC.'controles/listarDadosEstados.php');
-    
     //Verifica a existencia da variavel de sessão
     //que usamos para trazer os dados para o editar
-    if(isset($_SESSION['cliente']))
+    if(isset($_SESSION['produto']))
     {
         
-        $id = $_SESSION['cliente']['idcliente'];
-        $nome = $_SESSION['cliente']['nome'];
-        $telefone = $_SESSION['cliente']['telefone'];
-        $celular = $_SESSION['cliente']['celular'];
-        $email = $_SESSION['cliente']['email'];
-        $rg = $_SESSION['cliente']['rg'];
-        $cpf = $_SESSION['cliente']['cpf'];
-        $obs = $_SESSION['cliente']['obs'];
-        $idEstado = $_SESSION['cliente']['idEstado'];
-        $sigla = $_SESSION['cliente']['sigla'];
-        $foto = $_SESSION['cliente']['foto'];
+        $id = $_SESSION['produto']['idProdutos'];
+        $nome = $_SESSION['produto']['nome'];
+        $imagem = $_SESSION['produto']['imagem'];
+        $valor = $_SESSION['produto']['valor'];
+        $destaque = $_SESSION['produto']['destaque'];
+        $desconto = $_SESSION['produto']['desconto'];
+        $descricao = $_SESSION['produto']['descricao'];
         $modo = "Atualizar";
         
         //Elimina um objeto, variavel da memória
-        unset($_SESSION['cliente']);
+        unset($_SESSION['produto']);
         
     }
         
@@ -84,22 +70,10 @@
                     
                     //Recebe o id do Cliente que foi adicionado pelo 
                     //data atributo no HTML
-                    let idCliente = $(this).data('id');
+                    let idProduto = $(this).data('id');
                     
                     //Realiza uma requisição para consumir 
                     //dados de uma outra página
-                    $.ajax({
-                        type: "GET", //Tipo de requisição (GET, POST, PUT, etc)
-                        url: "visualizarDados.php", //URL da página que será consumida
-                        data: {id:idCliente},
-                        success: function(dados){ //Se a requisição der certo, 
-                                                    //iremos receber o conteudo na variavel 
-                                                    //dados
-                            
-                            $('#modal').html(dados); //Exibe dentro da div MODAL
-                            
-                        }                        
-                    });
                 });
                 
                 //Fechar a modal
@@ -149,7 +123,7 @@
         enctype="multipart/form-data" é obrigatório ser utilizado quando for trabalhar com imagem
         OBS:PARA TRABALHAR COM A INPUT type="file" É OBRIGATÓRIO UTILIZAR O MÉTODO POST-->
 
-            <form enctype="multipart/form-data"action="controles/recebeDadosClientes.php?modo=<?=$modo?>&id=<?=$id?>&nomeFoto=<?=$foto?>" name="frmCadastro"
+            <form enctype="multipart/form-data"action="controles/recebeDadosProdutos.php?modo=<?=$modo?>&id=<?=$id?>&nomeImagem=<?=$imagem?>" name="frmCadastro"
                 method="post">
 
                 <div class="campos">
@@ -163,85 +137,45 @@
                 </div>
                 <div class="campos">
                     <div class="cadastroInformacoesPessoais">
-                        <label> Foto: </label>
+                        <label> Imagem: </label>
                     </div>
                     <div class="cadastroEntradaDeDados">
-                        <input type="file" name="fleFoto" accept="image/jpeg, image/jgp, image/png">
-                        <div id="visualizarFoto">
-                            <img src="<?=NOME_DIRETORIO_FILE .$foto?>">
+                        <input type="file" name="fleImagem" accept="image/jpeg, image/jgp, image/png">
+                        <div id="visualizarImagem">
+                            <img src="<?=NOME_DIRETORIO_FILE .$imagem?>">
                         </div>
                     </div>
                 </div>
                 <div class="campos">
                     <div class="cadastroInformacoesPessoais">
-                        <label> Estado: </label>
+                        <label> Valor: </label>
                     </div>
                     <div class="cadastroEntradaDeDados">
-                        <select name="sltEstado" id="">
-                        <option value="<?=$idEstado?>">
-                            <?=$sigla?>
-                        </option>
-                            <?php
-                            // chama a função que vai buscar todos os estados do banco 
-                                $listarEstados = exibirEstados();
-                                // repetição para exibir os dados do BD 
-                                while ($rsEstados = mysqli_fetch_assoc($listarEstados))
-                                {
-                                    ?>
-                            <option value="<?=$rsEstados['idEstado']?>"><?=$rsEstados['sigla']?></option>
-                            <?php
-                                }
-                            ?>
-                        </select>
+                        <input type="tel" name="txtValor" value="<?=$valor?>">
                     </div>
                 </div>
                 <div class="campos">
                     <div class="cadastroInformacoesPessoais">
-                        <label> Telefone: </label>
+                        <label> Destaque: </label>
                     </div>
                     <div class="cadastroEntradaDeDados">
-                        <input type="tel" name="txtTelefone" value="<?=$telefone?>">
+                        <input type="tel" name="txtDestaque" value="<?=$destaque?>">
                     </div>
                 </div>
                 <div class="campos">
                     <div class="cadastroInformacoesPessoais">
-                        <label> Celular: </label>
+                        <label> Desconto: </label>
                     </div>
                     <div class="cadastroEntradaDeDados">
-                        <input type="tel" name="txtCelular" value="<?=$celular?>">
+                        <input type="tel" name="txtDesconto" value="<?=$desconto?>">
                     </div>
-                    < 
-                    </div>
-                    <div class="campos">
-                        <div class="cadastroInformacoesPessoais">
-                            <label> RG: </label>
-                        </div>
-                        <div class="cadastroEntradaDeDados">
-                            <input type="text" name="txtRg" value="<?=$rg?>" maxlength="20">
-                        </div>
                     </div>
                     <div class="campos">
                         <div class="cadastroInformacoesPessoais">
-                            <label> CPF: </label>
+                            <label>Descricao: </label>
                         </div>
                         <div class="cadastroEntradaDeDados">
-                            <input type="text" name="txtCpf" value="<?=$cpf?>" maxlength="20">
-                        </div>
-                    </div>
-                    <div class="campos">
-                        <div class="cadastroInformacoesPessoais">
-                            <label> Email: </label>
-                        </div>
-                        <div class="cadastroEntradaDeDados">
-                            <input type="email" name="txtEmail" value="<?=$email?>">
-                        </div>
-                    </div>
-                    <div class="campos">
-                        <div class="cadastroInformacoesPessoais">
-                            <label> Observações: </label>
-                        </div>
-                        <div class="cadastroEntradaDeDados">
-                            <textarea name="txtObs" cols="50" rows="7"><?=$obs?></textarea>
+                            <textarea name="txtDescricao" cols="50" rows="7"><?=$descricao?></textarea>
                         </div>
                     </div>
                     <div class="enviar">
@@ -261,40 +195,42 @@
                 </tr>
                 <tr id="tblLinhas">
                     <td class="tblColunas destaque"> Nome </td>
-                    <td class="tblColunas destaque"> Celular </td>
-                    <td class="tblColunas destaque"> Email </td>
+                    <td class="tblColunas destaque"> Valor </td>
+                    <td class="tblColunas destaque"> Destaque </td>
+                    <td class="tblColunas destaque"> Desconto </td>
                     <td class="tblColunas destaque"> Imagens </td>
                     <td class="tblColunas destaque"> Opções </td>
                 </tr>
                 
                 <?php 
-                    $dadosClientes = exibirClientes();
-                    
-                    while ($rsClientes=mysqli_fetch_assoc($dadosClientes))
+                    $dadosProdutos = exibirProduto();
+                if($dadosProdutos !== false){
+                    while ($rsProdutos=mysqli_fetch_assoc($dadosProdutos))
                     {
                 ?>
                 <tr id="tblLinhas">
-                    <td class="tblColunas registros"><?=$rsClientes['nome']?></td>
-                    <td class="tblColunas registros"><?=$rsClientes['celular']?></td>
-                    <td class="tblColunas registros"><?=$rsClientes['email']?></td>
+                    <td class="tblColunas registros"><?=$rsProdutos['nome']?></td>
+                    <td class="tblColunas registros"><?=$rsProdutos['valor']?></td>
+                    <td class="tblColunas registros"><?=$rsProdutos['destaque']?></td>
+                    <td class="tblColunas registros"><?=$rsProduto['desconto']?></td>
                     <td class="tblColunas registros">
-                        <img class = "foto" src="<?=NOME_DIRETORIO_FILE . $rsClientes['foto']?>" alt="" >
+                        <img class = "foto" src="<?=NOME_DIRETORIO_FILE . $rsProdutos['imagem']?>" alt="" >
                     </td>
                     <td class="tblColunas registros">
                         
-                        <a href="controles/editaDadosClientes.php?id=<?=$rsClientes['idcliente']?>">
+                        <a href="controles/editaDadosProdutos.php?id=<?=$rsProdutos['idProdutos']?>">
                             <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
                         </a>
-                        <a onclick="return confirm('Tem certeza que deseja ecluir?');" href="controles/excluiDadosClientes.php?id=<?=$rsClientes['idcliente']?>&foto=<?=$rsClientes['foto']?>">
+                        <a onclick="return confirm('Tem certeza que deseja ecluir?');" href="controles/excluiDadosProdutos.php?id=<?=$rsProdutos['idProdutos']?>&imagem=<?=$rsProduto['imagem']?>">
                             <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                         </a>
                         
-                            <img src="img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar" data-id="<?=$rsClientes['idcliente']?>">
+                            <img src="img/search.png" alt="Visualizar" title="Visualizar" class="pesquisar" data-id="<?=$rsProdutos['idProdutos']?>">
        
                     </td>
                 </tr>
                 <?php 
-                    } 
+                    } }
                 ?>
             </table>
         </div>

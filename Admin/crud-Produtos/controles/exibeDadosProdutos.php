@@ -6,9 +6,9 @@
 ********************************************/
 
 //Import do arquivo para inserir no BD
-require_once(SRC.'bd/listarClientes.php');
+require_once(SRC.'bd/listarProduto.php');
 
-function exibirClientes (){
+function exibirProduto (){
     //Chama a função que busca os dados no BD e recebe os registros de clientes
     $dados = listar();
     
@@ -20,17 +20,13 @@ function criarArray($objeto){
     // Estrutura de repetição para pegar uma objeto de dados e converter em um array 
     while($rsDados = mysqli_fetch_assoc($objeto)){
         $arrayDados[$cont] =  array(
-            "id"        =>  $rsDados['idcliente'],
+            "id"        =>  $rsDados['idProdutos'],
             "nome"      =>  $rsDados['nome'],
-            "rg"        =>  $rsDados['rg'],
-            "cpf"       =>  $rsDados['cpf'],
-            "telefone"  =>  $rsDados['telefone'],
-            "email"     =>  $rsDados['email'],
-            "celular"   =>  $rsDados['celular'],
-            "obs"       =>  $rsDados['obs'],
-            "foto"      =>  $rsDados['foto'],
-            "idEstado"  =>  $rsDados['idEstado'],
-            "sigla"     =>  $rsDados['sigla']
+            "imagem"        =>  $rsDados['imagem'],
+            "valor"       =>  $rsDados['valor'],
+            "destaque"  =>  $rsDados['destaque'],
+            "desconto"     =>  $rsDados['desconto'],
+            "descricao"   =>  $rsDados['descricao'],
         );
         $cont ++;
     }
@@ -60,7 +56,7 @@ function criarJson($arrayDados){
     }
 }
 // Função para buscar dados do banco de dados
-function buscarClientes ($id){
+function buscarProdutos ($id){
     //Chama a função que busca os dados no BD e recebe os registros de clientes
     $dados = buscar($id);
     

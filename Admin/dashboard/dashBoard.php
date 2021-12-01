@@ -12,7 +12,7 @@
     require_once("header.php");
     ?>
     <main>
-        <h1 id="tituloConteudo">Titulo Seção</h1>
+        <h1 id="tituloConteudo">Bem Vindo Senhor(a)!!!</h1>
     </main>
     <?php require_once("footer.php");?>
 </body>

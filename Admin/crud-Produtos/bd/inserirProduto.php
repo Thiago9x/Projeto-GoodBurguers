@@ -8,33 +8,32 @@
 //Import do arquivo de conexão com o BD
 require_once('../bd/conexaoMysql.php');
 
-function inserir ($arrayCliente)
+function inserir ($arrayProduto)
 {
-    $sql = "insert into tblcliente
+   
+    $sql = "insert into tblProdutos
                 (
                     nome,
-                    rg,
-                    cpf,
-                    telefone,
-                    celular,
-                    email,
-                    obs,
-                    foto,
-                    idEstado
+                    valor,
+                    destaque,
+                    desconto,
+                    descricao,
+                    imagem 
                 )
                 values
                 (
-                    '". $arrayCliente['nome'] ."',
-                    '". $arrayCliente['rg'] ."',
-                    '". $arrayCliente['cpf'] ."',
-                    '". $arrayCliente['telefone'] ."',
-                    '". $arrayCliente['celular'] ."',
-                    '". $arrayCliente['email'] ."',
-                    '". $arrayCliente['obs'] ."',
-                    '". $arrayCliente['foto'] ."',
-                    ". $arrayCliente['idEstado'] ."
-                )
+                    '". $arrayProduto['nome'] ."',
+                    '". $arrayProduto['valor'] ."',
+                    ". $arrayProduto['destaque'] .",
+                    ". $arrayProduto['desconto'] .",
+                    '". $arrayProduto['descricao'] ."',
+                    '". $arrayProduto['imagem'] ."'
+                );
             ";
+            
+            var_dump($sql);
+
+            die;
 
         //Chamando a função que estabelçece a conexão com o BD 
         $conexao = conexaoMysql();

@@ -8,25 +8,22 @@
 require_once('../functions/config.php');
 
 //Import do arquivo para inserir no BD
-require_once(SRC.'bd/inserirCliente.php');
+require_once(SRC.'bd/inserirProduto.php');
 
 // Import o arquivo que faz o upload de imagens para o servidor
 require_once(SRC.'functions/upload.php');
 
-require_once(SRC.'bd/atualizarCliente.php');
+require_once(SRC.'bd/atualizarProduto.php');
 
 
 //Declaração de variaveis
 $nome = (string) null;
-$rg = (string) null;
-$cpf = (string) null;
-$telefone = (string) null;
-$celular = (string) null;
-$email = (string) null;
-$obs = (string) null;
-$idEstado = (int) null;
-//variavel criada para guardar o nome da foto
-$foto=(String) null;
+$imagme = (string) null;
+$valor = (string) null;
+$destaque = (string) null;
+$desconto = (string) null;
+$descricao = (string) null;
+
 
 //Validação para saber se o id do registro está chegando 
     // pela URL (modo para "Atualizar" um registro)
@@ -42,66 +39,58 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     //Recebe os dados encaminhado pelo Formulário através do metdo POST
     $nome = $_POST['txtNome'];
-    $rg = $_POST['txtRg'];
-    $cpf = $_POST['txtCpf'];
-    $telefone = $_POST['txtTelefone'];
-    $celular = $_POST['txtCelular'];
-    $email = $_POST['txtEmail'];
-    $obs = $_POST['txtObs'];
-    $idEstado = $_POST['sltEstado'];
+    $valor = $_POST['txtValor'];
+    $destaque = $_POST['txtDestaque'];
+    $desconto = $_POST['txtDesconto'];
+    $descricao = $_POST['txtDescricao'];
     $id=(int) $_GET['id'];
     // esse nome esta chegando atraves do action do form da index, o motivo dessa variavel é para concluir o editar com o upload  de foto
-    $nomeFoto = $_GET['nomeFoto'];
+    $nomeImagem = $_GET['nomeImagem'];
 
     if(strtoupper($_GET['modo']) == "ATUALIZAR"){
-        if($_FILES['fleFoto']['name']!= ""){
+        if($_FILES['fleImagem']['name']!= ""){
             // chama a função que faz o upload de um arquivo 
-            $foto = uploadFile($_FILES['fleFoto']);
+            $imagem = uploadFile($_FILES['fleImagem']);
             // apaga a foto antiga 
-            unlink(SRC.NOME_DIRETORIO_FILE. $nomeFoto);
+            unlink(SRC.NOME_DIRETORIO_FILE. $nomeImagem);
         }
         else{
-            $foto = $nomeFoto;
+            $imagem = $nomeImagem;
         }
     }
     
     else{//Caso a variavel modo seja salvar então sera obrigatorio
 
     // chama a função que faz o upload de um arquivo 
-    $foto = uploadFile($_FILES['fleFoto']);
+    $imagem = uploadFile($_FILES['fleImagem']);
     // die;
     }
     //Validação de campos obrigatórios
-    if ($nome == null || $rg == null || $cpf == null)
+    if ($nome == null || $valor == null || $descricao == null)
         echo(ERRO_CAIXA_VAZIA);
     //Validação de qtde de caracteres
     //strlen() retorna a qtde de caracteres de uma varaivel
-    elseif (strlen($nome)>100 || strlen($rg)>15 || strlen($cpf)>20)
+    elseif (strlen($nome)>100 || strlen($valor)>15 || strlen($descricao)>500)
          echo( ERRO_MAXLENGHT);
     else
     {
         //Local para enviar os dados para o Banco de Dados
         
         //Criação de um Array para encaminhar a função de inserir
-        $cliente = array (
-            "nome"      => $nome,
-            "rg"        => $rg,
-            "cpf"       => $cpf,
-            "telefone"  => $telefone,
-            "celular"   => $celular,
-            "email"     => $email,
-            "obs"       => $obs,
-            "id"        => $id,
-            "foto"      =>$foto,
-            "idEstado"  => $idEstado
-        
+        $produto = array (
+            "nome"          => $nome,
+            "imagem"        => $imagem,
+            "valor"         => $valor,
+            "destaque"      => $destaque,
+            "desconto"      => $desconto,
+            "descricao"     => $descricao        
         );
         //validação para saber se é para inserir um novo registro
         // ou se é para atualizar um registro existente no BD
         if (strtoupper($_GET['modo']) == 'SALVAR')
         {
             //Chama a função inserir do arquivo inserirCliente.php, e encaminha o array com os dados do cliente    
-            if (inserir($cliente))
+            if (inserir($produto))
                 echo("
                     <script>
                         alert('". BD_MSG_INSERIR ."');
@@ -115,9 +104,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                         window.history.back(); 
                     </script>
                 ");
+                
         }elseif (strtoupper($_GET['modo']) == 'ATUALIZAR')
         {
-            if (editar($cliente))
+            if (editar($produto))
                 echo("
                     <script>
                         alert('". BD_MSG_INSERIR ."');

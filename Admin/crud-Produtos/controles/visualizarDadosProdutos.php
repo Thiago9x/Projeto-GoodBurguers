@@ -5,24 +5,24 @@
     Autor: Marcel
 *******************************************************/
 
-function visualizarCliente ($id)
+function visualizarProdutos ($id)
 {
     //Import do arquivo de configuração de varaiveis e constantes
     require_once('functions/config.php');
 
     //Import do arquivo para exluir no BD
-    require_once(SRC.'bd/listarClientes.php');
+    require_once(SRC.'bd/listarProdutos.php');
     
     //Recebe o id enviado como argumento na função
-    $idCliente = $id;
+    $idProduto = $id;
     
     //Chama a função para buscar de id do cliente
-    $dadosCliente = buscar($idCliente);
+    $dadosProduto = buscar($idProduto);
     
     //converte o resultado do BD em um array 
     //através mysqli_fetch_assoc 
-    if($rsCliente=mysqli_fetch_assoc($dadosCliente))
-         return $rsCliente;
+    if($rsProduto=mysqli_fetch_assoc($dadosProduto))
+         return $rsProduto;
     else
         return false;
     

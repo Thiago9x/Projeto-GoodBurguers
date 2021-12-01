@@ -11,22 +11,22 @@
     <main>
         <h1>Autenticação para o CMS</h1>
         <h3>Good Burguer's</h3>
-        <form>
+        <form action='autenticar.php'name='frmLogin' method="post">
             <div class="inserir">
             <label>
                 Login:
             </label>
-            <input type="text"  placeholder="Insira seu Login" maxlength="30">
+            <input type="text" name = 'txtLogin'  placeholder="Insira seu Login" maxlength="30">
             </div>
             <div class="inserir">
             <label>
                 Senha:
             </label>
-            <input type="text"  placeholder="Insira sua Senha" maxlength="30">
+            <input type="text" name='txtSenha' placeholder="Insira sua Senha" maxlength="30">
             </div>
-            <a href="./dashboard/dashBoard.php">
-                <input type="button" name="btnLogin" value="Login" id="botao">
-            </a>
+
+                <input type="submit" name="btnLogin" value="Login" id="botao">
+            
         </form>
     </main>
 </body>

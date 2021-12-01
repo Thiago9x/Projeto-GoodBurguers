@@ -8,19 +8,16 @@
 //Import do arquivo de conexão com o BD
 require_once('../bd/conexaoMysql.php');
 
-function editar ($arrayCliente)
+function editar ($arrayProduto)
 {
-    $sql = "update tblcliente set 
-                nome = '".$arrayCliente['nome']."',
-                rg = '".$arrayCliente['rg']."',
-                cpf = '".$arrayCliente['cpf']."',
-                telefone = '".$arrayCliente['telefone']."',
-                celular = '".$arrayCliente['celular']."',
-                email = '".$arrayCliente['email']."',
-                obs = '".$arrayCliente['obs']."',
-                idEstado = ".$arrayCliente['idEstado'].",
-                foto = '".$arrayCliente['foto']."'
-            where idcliente = ".$arrayCliente['id'];
+    $sql = "update tblProdutos set 
+                nome = '".$arrayProduto['nome']."',
+                valor = '".$arrayProduto['valor']."',
+                destaque = '".$arrayProduto['destaque']."',
+                desconto = '".$arrayProduto['desconto']."',
+                descricao = '".$arrayProduto['descricao']."',
+                imagem = '".$arrayProduto['imagem']."'
+            where idProdutos = ".$arrayProduto['id'];
     
         //Chamando a função que estabelece a conexão com o BD 
         $conexao = conexaoMysql();

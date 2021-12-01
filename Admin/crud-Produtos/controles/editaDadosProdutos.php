@@ -11,17 +11,17 @@
     require_once('../functions/config.php');
 
     //Import do arquivo para exluir no BD
-    require_once(SRC.'bd/listarClientes.php');
+    require_once(SRC.'bd/listarProduto.php');
 
     //O id esta sendo encaminhado pela index, no link que foi realizado na imagem do excluir
-    $idCliente = $_GET['id'];
+    $idProduto = $_GET['id'];
     
     //Chama a função para buscar de id do cliente
-    $dadosCliente = buscar($idCliente);
+    $dadosProduto = buscar($idProduto);
     
     //converte o resultado do BD em um array 
     //através mysqli_fetch_assoc 
-    if($rsCliente=mysqli_fetch_assoc($dadosCliente))
+    if($rsProduto=mysqli_fetch_assoc($dadosProduto))
     {
         //Ativa a utilização de variaveis de sessão 
         //(são varaivels) globais
@@ -29,7 +29,7 @@
         
         //Criamos uma variavel de sessão para guardar o array
         //com os dados do cliente que retornou do BD
-        $_SESSION['cliente'] = $rsCliente;
+        $_SESSION['produto'] = $rsProduto;
         
         //Permite chamar um arquivo como se fosse um link,
         //através do php

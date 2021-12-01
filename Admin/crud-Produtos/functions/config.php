@@ -5,13 +5,13 @@
     Autor: Marcel
 *********************************************/
 //constante para indicar a pasta raiz do servidor + a estrutara de diretório até o meu projeto
-define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t2021/Back-End/Projeto-GoodBurguers/admin/crud-Usuario/');
+define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t2021/Back-End/Projeto-GoodBurguers/Admin/crud-Produtos/');
 
 //Variaveis e constantes para conexão com o Banco de Dados MySql
 const BD_SERVER = 'localhost';
 const BD_USER = 'root';
 const BD_PASSWORD = 'bcd127';
-const BD_DATABASE = 'dbgoodburguers';
+const BD_DATABASE = 'dbcontatos20212t';
 
 
 //Mensagens de Erro do sistema
@@ -23,11 +23,10 @@ const ERRO_MAXLENGHT = "<script>alert('Não foi possivel realizar a operção, p
 
 //Mensagens de aceitação e validação de dados no BD
 const BD_MSG_INSERIR = "Registro salvo com sucesso no Banco de Dados!";
-
 const BD_MSG_EXCLUIR = "
             <script>
                 alert('Registro excluido com sucesso do Banco de Dados');
-                window.location.href='../dashboard.php';
+                window.location.href='../index.php';
             </script>";
 const BD_MSG_ERRO = "ERRO: Não foi possivel manipular os dados no Banco de Dados!";
 
@@ -37,5 +36,4 @@ define('NOME_DIRETORIO_FILE', "arquivos/");
 $extensoesPermitidasFile = array  ("image/png", "image/jpg", "image/jpeg");
 define('EXTENSOES_PERMITIDAS', $extensoesPermitidasFile);
 const TAMANHO_FILE = "5120";
-
 ?>

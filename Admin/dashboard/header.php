@@ -21,11 +21,13 @@
                 <img id="imgspace" src="img/logoimg.jpg" alt="" >
         </div>
         <div id="menu">
+            <a href="../crud-Produtos/dashboard.php">
             <div id="spaceItensmenu">
                 <div class="itensmenu">
                     <img class="imgMenu" src="img/produtos.png" alt="">
                     <h3>Adm. de Produtos</h3>
                 </div>
+            </a>
             <a href="../crud-Categoria/dashBoard.php">
             <div class="itensmenu">
                     <img class="imgMenu" src="img/categorias.png" alt="">

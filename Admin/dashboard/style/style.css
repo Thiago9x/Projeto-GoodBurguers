@@ -26,7 +26,6 @@ body{
     height: auto;
     width: 20%;
 }
-
 #nomeLoja{
     width: 100%;
     min-height: 60px;
@@ -52,9 +51,8 @@ h2{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 h3{
-    color: white;
     font-size: 1em;
-    text-align: center;
+    color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #imgspace{

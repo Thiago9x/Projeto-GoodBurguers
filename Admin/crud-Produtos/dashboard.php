@@ -127,7 +127,7 @@
         <main>
         <div id="cadastro"> 
             <div id="cadastroTitulo"> 
-                <h1> Cadastro de Contatos </h1>
+                <h1> Cadastro de Produtos</h1>
             </div>
             <div id="cadastroInformacoes">
                 <!-- 

@@ -68,7 +68,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             }
             else
             {
-                echo( BD_MSG_ERRO);
+                echo("
+                <script>
+                    alert('". BD_MSG_ERRO ."');
+                    die;
+                    window.history.back(); 
+                </script>
+            ");
             }
         }
     }

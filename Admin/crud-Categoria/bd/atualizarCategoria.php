@@ -14,7 +14,7 @@ function editar($arrayCategoria)
                 where idCategoria = ".$arrayCategoria['id'];
 
         // var_dump($arrayCategoria);   
-            echo $sql;
+            
             // var_dump($arrayCliente);
             //Chamando a função que estabelece a conexão com o BD 
         $conexao = conexaoMysql();

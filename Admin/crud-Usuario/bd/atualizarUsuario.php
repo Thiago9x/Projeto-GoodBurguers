@@ -6,16 +6,17 @@
 *************************************************************************/
 //Import do arquivo de conexão com o BD
 require_once(SRC.'bd/conexaoMysql.php');
-function editar($arrayUsuario)
+function editar($arrayUsuarios)
 {
+    
     // throw new Exception();
     $sql = "update tblUsuario set
-                    nome =' ". $arrayUsuario['nome']."',
-                    senha =' ". $arrayUsuario['senha']."',
-                where idUsuario = ".$arrayUsuario['id'];
-
+                    nome =' ". $arrayUsuarios['nome']."',
+                    senha =' ". $arrayUsuarios['senha']."'
+                where idUsuario = ".$arrayUsuarios['id'];
+        
         // var_dump($arrayCategoria);   
-            // echo $sql;
+            echo $sql;
             // var_dump($arrayCliente);
             //Chamando a função que estabelece a conexão com o BD 
         $conexao = conexaoMysql();

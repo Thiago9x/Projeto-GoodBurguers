@@ -63,6 +63,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                     alert('". BD_MSG_INSERIR ."');
                     window.location.href = '../dashboard.php';
                 </script>
+                
             ");
             }
             else

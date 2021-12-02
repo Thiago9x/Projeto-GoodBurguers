@@ -22,7 +22,7 @@
             <label>
                 Senha:
             </label>
-            <input type="text" name='txtSenha' placeholder="Insira sua Senha" maxlength="30">
+            <input type="password" name='txtSenha' placeholder="Insira sua Senha" maxlength="30">
             </div>
 
                 <input type="submit" name="btnLogin" value="Login" id="botao">

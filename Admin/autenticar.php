@@ -11,20 +11,28 @@
     $login = $_POST['txtLogin'];
     $senha = $_POST['txtSenha'];
 
+    
     if($login == "" || $senha == ""){
-        echo(LOGIN_MSG_INVALIDO);
-    }
-        else{
-            $sql = "select * from tblUsuario where nome = '".$login."' and senha = '".$senha."'";
+        echo(ERRO_CAIXA_VAZIA);
+        
+    }else if($login != "" || $senha != ""){
+        $sql = "select * from tblUsuario where nome = '".$login."' and senha = '".$senha."'";
 
             $conexao = conexaoMysql();
         
             $select=mysqli_query($conexao,$sql);
 
             if($rsUsuario = mysqli_fetch_assoc($select)){
+                session_start();
+                $_SESSION['nomeUsuario'] = $rsUsuario['nome'];
+                $_SESSION['statusLogin'] = true;  
                 header('location: dashboard/dashboard.php');
             }
-        
+       
+    
+        else{
+            echo(LOGIN_MSG_INVALIDO);
+        }
     }
         
 ?>

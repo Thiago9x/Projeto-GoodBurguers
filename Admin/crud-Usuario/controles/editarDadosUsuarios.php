@@ -21,7 +21,7 @@
     if($rsUsuario = mysqli_fetch_assoc($dadosUsuario))
     {
         session_start();
-        $_SESSION['Usuario'] = $rsUsuarios;
+        $_SESSION['Usuario'] = $rsUsuario;
         header("location:../dashboard.php");
     }
     else

@@ -11,19 +11,20 @@
     $login = $_POST['txtLogin'];
     $senha = $_POST['txtSenha'];
 
-    if($login != '' && $senha != ""){
-        $sql = "select * from tblUsuario where nome = '".$login."' and senha = '".$senha."'";
-
-        $conexao = conexaoMysql();
-        
-        $select=mysqli_query($conexao,$sql);
-
-        if($rsUsuario = mysqli_fetch_assoc($select)){
-            header('location: dashboard/dashboard.php');
-        }
+    if($login == "" || $senha == ""){
+        echo(LOGIN_MSG_INVALIDO);
+    }
         else{
-            echo(LOGIN_MSG_INVALIDO);
-        }
+            $sql = "select * from tblUsuario where nome = '".$login."' and senha = '".$senha."'";
+
+            $conexao = conexaoMysql();
+        
+            $select=mysqli_query($conexao,$sql);
+
+            if($rsUsuario = mysqli_fetch_assoc($select)){
+                header('location: dashboard/dashboard.php');
+            }
+        
     }
         
 ?>

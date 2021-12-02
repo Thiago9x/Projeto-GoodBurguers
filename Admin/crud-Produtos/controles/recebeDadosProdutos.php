@@ -18,7 +18,7 @@ require_once(SRC.'bd/atualizarProduto.php');
 
 //Declaração de variaveis
 $nome = (string) null;
-$imagme = (string) null;
+$imagem = (string) null;
 $valor = (string) null;
 $destaque = (string) null;
 $desconto = (string) null;
@@ -78,6 +78,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         
         //Criação de um Array para encaminhar a função de inserir
         $produto = array (
+            "id"            => $id,
             "nome"          => $nome,
             "imagem"        => $imagem,
             "valor"         => $valor,

@@ -21,8 +21,8 @@
     //import do arquivo de configuração de variaveis e constantes
     require_once('functions/config.php');
 
-    //require_once(SRC.'bd/conexaoMysql.php');
-    //conexaoMysql();
+    require_once(SRC.'bd/conexaoMysql.php');
+    conexaoMysql();
 
     require_once(SRC.'controles/exibeDadosProdutos.php');
 
@@ -123,7 +123,7 @@
         enctype="multipart/form-data" é obrigatório ser utilizado quando for trabalhar com imagem
         OBS:PARA TRABALHAR COM A INPUT type="file" É OBRIGATÓRIO UTILIZAR O MÉTODO POST-->
 
-            <form enctype="multipart/form-data"action="controles/recebeDadosProdutos.php?modo=<?=$modo?>&id=<?=$id?>&nomeImagem=<?=$imagem?>" name="frmCadastro"
+            <form enctype="multipart/form-data" action="controles/recebeDadosProdutos.php?modo=<?=$modo?>&id=<?=$id?>&nomeImagem=<?=$imagem?>" name="frmCadastro"
                 method="post">
 
                 <div class="campos">
@@ -142,7 +142,7 @@
                     <div class="cadastroEntradaDeDados">
                         <input type="file" name="fleImagem" accept="image/jpeg, image/jgp, image/png">
                         <div id="visualizarImagem">
-                            <img src="<?=NOME_DIRETORIO_FILE .$imagem?>">
+                            <img id="imagemAmostra" src="<?=NOME_DIRETORIO_FILE .$imagem?>">
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                         <label> Valor: </label>
                     </div>
                     <div class="cadastroEntradaDeDados">
-                        <input type="tel" name="txtValor" value="<?=$valor?>">
+                        <input type="text" name="txtValor" value="<?=$valor?>">
                     </div>
                 </div>
                 <div class="campos">
@@ -159,7 +159,7 @@
                         <label> Destaque: </label>
                     </div>
                     <div class="cadastroEntradaDeDados">
-                        <input type="tel" name="txtDestaque" value="<?=$destaque?>">
+                        <input type="text" name="txtDestaque" value="<?=$destaque?>">
                     </div>
                 </div>
                 <div class="campos">
@@ -167,7 +167,7 @@
                         <label> Desconto: </label>
                     </div>
                     <div class="cadastroEntradaDeDados">
-                        <input type="tel" name="txtDesconto" value="<?=$desconto?>">
+                        <input type="text" name="txtDesconto" value="<?=$desconto?>">
                     </div>
                     </div>
                     <div class="campos">
@@ -212,16 +212,16 @@
                     <td class="tblColunas registros"><?=$rsProdutos['nome']?></td>
                     <td class="tblColunas registros"><?=$rsProdutos['valor']?></td>
                     <td class="tblColunas registros"><?=$rsProdutos['destaque']?></td>
-                    <td class="tblColunas registros"><?=$rsProduto['desconto']?></td>
+                    <td class="tblColunas registros"><?=$rsProdutos['desconto']?></td>
                     <td class="tblColunas registros">
                         <img class = "foto" src="<?=NOME_DIRETORIO_FILE . $rsProdutos['imagem']?>" alt="" >
                     </td>
                     <td class="tblColunas registros">
                         
-                        <a href="controles/editaDadosProdutos.php?id=<?=$rsProdutos['idProdutos']?>">
+                        <a href="./controles/editaDadosProdutos.php?id=<?=$rsProdutos['idProdutos']?>">
                             <img src="img/edit.png" alt="Editar" title="Editar" class="editar">
                         </a>
-                        <a onclick="return confirm('Tem certeza que deseja ecluir?');" href="controles/excluiDadosProdutos.php?id=<?=$rsProdutos['idProdutos']?>&imagem=<?=$rsProduto['imagem']?>">
+                        <a onclick="return confirm('Tem certeza que deseja ecluir?');" href="./controles/excluiDadosProdutos.php?id=<?=$rsProdutos['idProdutos']?>&imagem=<?=$rsProdutos['imagem']?>">
                             <img src="img/trash.png" alt="Excluir" title="Excluir" class="excluir">
                         </a>
                         

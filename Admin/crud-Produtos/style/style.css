@@ -142,7 +142,7 @@ main{
 
 .cadastroInformacoesPessoais  {
     width: 200px;
-    height: 40px;
+    height: inherit;
     background-color: #ededed;
     text-align: center;
     font-size: 1.5em;
@@ -173,9 +173,10 @@ input[type=text]:hover{
 
 
 .cadastroEntradaDeDados textarea{
-    width: 90%;
+    width: 100%;
     height: 100px;
     resize: none;
+    margin-left: 10px;
 }
 .enviar input{
     width: 150px;
@@ -342,14 +343,9 @@ span{
     color: white;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+#imagemAmostra{
+    margin-left: 310px;
+    margin-top: -40px;
+    height: 90px;
+    width: 90px;
+}

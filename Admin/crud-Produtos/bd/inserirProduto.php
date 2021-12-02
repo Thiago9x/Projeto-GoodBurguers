@@ -31,9 +31,7 @@ function inserir ($arrayProduto)
                 );
             ";
             
-            var_dump($sql);
-
-            die;
+           
 
         //Chamando a função que estabelçece a conexão com o BD 
         $conexao = conexaoMysql();

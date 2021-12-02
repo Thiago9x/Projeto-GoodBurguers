@@ -21,7 +21,7 @@
     
     //converte o resultado do BD em um array 
     //através mysqli_fetch_assoc 
-    if($rsProduto=mysqli_fetch_assoc($dadosProduto))
+    if($rsProdutos=mysqli_fetch_assoc($dadosProduto))
     {
         //Ativa a utilização de variaveis de sessão 
         //(são varaivels) globais
@@ -29,19 +29,19 @@
         
         //Criamos uma variavel de sessão para guardar o array
         //com os dados do cliente que retornou do BD
-        $_SESSION['produto'] = $rsProduto;
+        $_SESSION['produto'] = $rsProdutos;
         
         //Permite chamar um arquivo como se fosse um link,
         //através do php
-        header('location:../index.php');
+        header('location:../dashboard.php');
     }
-    else
-        echo("
-                <script>
-                    alert('". BD_MSG_ERRO ."');
-                    window.history.back(); 
-                </script>
-            ");
+    // else
+    //     echo("
+    //             <script>
+    //                 alert('". BD_MSG_ERRO ."');
+    //                 window.history.back(); 
+    //             </script>
+    //         ");
 
 
 

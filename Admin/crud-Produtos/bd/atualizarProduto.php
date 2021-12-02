@@ -18,7 +18,7 @@ function editar ($arrayProduto)
                 descricao = '".$arrayProduto['descricao']."',
                 imagem = '".$arrayProduto['imagem']."'
             where idProdutos = ".$arrayProduto['id'];
-    
+
         //Chamando a função que estabelece a conexão com o BD 
         $conexao = conexaoMysql();
         //Envia o script SQL para o BD

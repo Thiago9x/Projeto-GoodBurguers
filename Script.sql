@@ -35,9 +35,11 @@ create table tblContato(
     telefone varchar(45),
     celular varchar(45)
 );
-insert into tblProdutos(id,nome,valor,descricao,imagem,destaque,desconto) values(1,'good burguer','12','fhyafusvfuyasgy','f4as8ds1d98s',12,2)from tblProdutos;
+insert into tblProdutos (nome,valor,descricao,imagem,destaque,desconto) values('good burguer','12','fhyafusvfuyasgy','f4as8ds1d98s',12,2);
+
+delete from tblProdutos where idProdutos>=0;
 
 show tables;
 desc tblUsuario;
-select * from tblCategoria;
+select * from tblProdutos;
 drop  table tblProdutos;

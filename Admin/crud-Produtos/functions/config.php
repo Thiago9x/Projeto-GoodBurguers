@@ -11,7 +11,7 @@ define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t20212/Back-End/Projeto-GoodBurgue
 const BD_SERVER = 'localhost';
 const BD_USER = 'root';
 const BD_PASSWORD = 'bcd127';
-const BD_DATABASE = 'dbcontatos20212t';
+const BD_DATABASE = 'dbgoodburguers';
 
 
 //Mensagens de Erro do sistema
@@ -26,7 +26,7 @@ const BD_MSG_INSERIR = "Registro salvo com sucesso no Banco de Dados!";
 const BD_MSG_EXCLUIR = "
             <script>
                 alert('Registro excluido com sucesso do Banco de Dados');
-                window.location.href='../index.php';
+                window.location.href='../dashboard.php';
             </script>";
 const BD_MSG_ERRO = "ERRO: Não foi possivel manipular os dados no Banco de Dados!";
 

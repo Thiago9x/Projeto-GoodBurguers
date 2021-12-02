@@ -27,7 +27,7 @@ function listar ()
 function buscar ($idProduto)
 {
     $sql = "select * from tblProdutos
-	               ".$idProduto;
+	        where idProdutos = ".$idProduto;
     
     //Abre a conexão com o BD
     $conexao = conexaoMysql();

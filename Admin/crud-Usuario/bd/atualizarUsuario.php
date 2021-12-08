@@ -27,9 +27,4 @@ function editar($arrayUsuarios)
             return false; //Retorna falso se houver algum problema
                 
 }
-
-
-
-
-
 ?>

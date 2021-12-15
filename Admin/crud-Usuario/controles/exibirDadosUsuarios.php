@@ -5,7 +5,7 @@
     Autor: Thiago
 ********************************************/
 
-require_once(SRC.'bd/listarUsuario.php');
+require_once(SRCU.'bd/listarUsuario.php');
 
 function exibirUsuarios(){
     //Chama a função que busca os dados no BD e recebe os registros de clientes

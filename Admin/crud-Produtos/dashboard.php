@@ -10,6 +10,9 @@
     $desconto = (string) null;
     $descricao = (string) null;
     $id = (int) 0;
+    $idCategorias = (int) 0;
+    $nomeCategorias = (string) 'Selecione uma Categoria';
+
 
     //Essa variavel será utilizada para definir
     //o modo de manipulação com o banco de dados
@@ -25,6 +28,9 @@
     conexaoMysql();
 
     require_once(SRC.'controles/exibeDadosProdutos.php');
+    
+    require_once(SRC.'../crud-Categoria/controles/exibirDadosCategorias.php');
+
 
     //Verifica a existencia da variavel de sessão
     //que usamos para trazer os dados para o editar
@@ -38,6 +44,8 @@
         $destaque = $_SESSION['produto']['destaque'];
         $desconto = $_SESSION['produto']['desconto'];
         $descricao = $_SESSION['produto']['descricao'];
+        $nomeCategorias = $_SESSION['produto']['nome'];
+        $idCategorias = $_SESSION['produto']['idCategoria'];
         $modo = "Atualizar";
         
         //Elimina um objeto, variavel da memória
@@ -123,7 +131,7 @@
         enctype="multipart/form-data" é obrigatório ser utilizado quando for trabalhar com imagem
         OBS:PARA TRABALHAR COM A INPUT type="file" É OBRIGATÓRIO UTILIZAR O MÉTODO POST-->
 
-            <form enctype="multipart/form-data" action="controles/recebeDadosProdutos.php?modo=<?=$modo?>&id=<?=$id?>&nomeImagem=<?=$imagem?>" name="frmCadastro"
+            <form enctype="multipart/form-data" action="controles/recebeDadosProdutos.php?modo=<?=$modo?>&id=<?=$id?>&idCategoria=<?=$idCategorias?>&nomeImagem=<?=$imagem?>" name="frmCadastro"
                 method="post">
 
                 <div class="campos">
@@ -156,6 +164,28 @@
                 </div>
                 <div class="campos">
                     <div class="cadastroInformacoesPessoais">
+                        <label> Categorias: </label>
+                    </div>
+                    <div class="cadastroEntradaDeDados">
+                        <select name="sltIdCategoria">
+                            <option value='<?=$idCategorias?>'><?=$nomeCategorias?></option>
+                            <?php
+
+                                $listarCategorias = exibirCategorias();
+
+                                while($exibirCategorias = mysqli_fetch_assoc($listarCategorias)){
+                            ?>
+                                    <option value="<?=$exibirCategorias['idCategoria']?>"><?=$exibirCategorias['nome']?></option>
+                            <?php 
+                                }
+                            ?>
+
+                            
+                            </select>
+                    </div>
+                </div>
+                <div class="campos">
+                    <div class="cadastroInformacoesPessoais">
                         <label> Destaque: </label>
                     </div>
                     <div class="cadastroEntradaDeDados">
@@ -183,13 +213,15 @@
                             <input type="submit" name="btnEnviar" value="<?=$modo?>">
                         </div>
                     </div>
+               
+                
                 </form>
             </div>
         </div>
         <div id="consultaDeDados">
             <table id="tblConsulta" >
                 <tr>
-                    <td id="tblTitulo" colspan="6">
+                    <td id="tblTitulo" colspan="7">
                         <h1> Consulta de Dados.</h1>
                     </td>
                 </tr>
@@ -198,21 +230,24 @@
                     <td class="tblColunas destaque"> Valor </td>
                     <td class="tblColunas destaque"> Destaque </td>
                     <td class="tblColunas destaque"> Desconto </td>
+                    <td class="tblColunas destaque"> Categoria </td>
                     <td class="tblColunas destaque"> Imagens </td>
                     <td class="tblColunas destaque"> Opções </td>
                 </tr>
                 
                 <?php 
-                    $dadosProdutos = exibirProduto();
+                    $dadosProdutos = exibirCategoriasProdutos();
                 if($dadosProdutos !== false){
                     while ($rsProdutos=mysqli_fetch_assoc($dadosProdutos))
                     {
                 ?>
+
                 <tr id="tblLinhas">
                     <td class="tblColunas registros"><?=$rsProdutos['nome']?></td>
                     <td class="tblColunas registros"><?=$rsProdutos['valor']?></td>
                     <td class="tblColunas registros"><?=$rsProdutos['destaque']?></td>
                     <td class="tblColunas registros"><?=$rsProdutos['desconto']?></td>
+                    <td class="tblColunas registros"><?=$rsProdutos['nomeCategoria']?></td>
                     <td class="tblColunas registros">
                         <img class = "foto" src="<?=NOME_DIRETORIO_FILE . $rsProdutos['imagem']?>" alt="" >
                     </td>

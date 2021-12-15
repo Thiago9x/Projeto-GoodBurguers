@@ -9,7 +9,7 @@ require_once(SRC.'bd/listarCategoria.php');
 
 function exibirCategorias(){
     //Chama a função que busca os dados no BD e recebe os registros de clientes
-    $dados =  listar();
+    $dados =  listarCategorias();
     
     return $dados;
 }

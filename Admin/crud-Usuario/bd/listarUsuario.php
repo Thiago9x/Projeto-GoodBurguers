@@ -6,7 +6,7 @@
 *************************************************************************/
 
 //Import do arquivo de conexão com o BD
-require_once(SRC.'bd/conexaoMysql.php');
+require_once(SRCU.'bd/conexaoMysql.php');
 
 function listar()
 {

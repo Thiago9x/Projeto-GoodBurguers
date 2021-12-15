@@ -7,9 +7,9 @@
     $modo = (string) "Salvar";
     
     //import do arquivo de configuração de variaveis e constantes
-    require_once('functions/config.php');
+    require_once('./functions/config.php');
 
-    require_once(SRC."controles/exibirDadosUsuarios.php");
+    require_once(SRCU."controles/exibirDadosUsuarios.php");
 
     // require_once(SRC.'bd/conexaoMysql.php');
     // conexaoMysql();
@@ -64,7 +64,7 @@
 </head>
 <body>
     <?php
-    require_once(SRC."../dashboard/header.php");
+    require_once(SRCU."../dashboard/header.php");
     ?>
     <main>
         <!-- <div id="containerModal">

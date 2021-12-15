@@ -5,13 +5,13 @@
     Autor: Marcel
 *********************************************/
 //constante para indicar a pasta raiz do servidor + a estrutara de diretório até o meu projeto
-define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t20212/Back-End/Projeto-GoodBurguers/Admin/crud-Contato/');
+define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t20212/Back-End/Projeto-GoodBurguers-Copia/Admin/crud-Contato/');
 
 //Variaveis e constantes para conexão com o Banco de Dados MySql
 const BD_SERVER = 'localhost';
 const BD_USER = 'root';
 const BD_PASSWORD = 'bcd127';
-const BD_DATABASE = 'dbgoodburguers';
+const BD_DATABASE = 'dbgoodburguers2';
 
 
 //Mensagens de Erro do sistema

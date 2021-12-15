@@ -16,7 +16,8 @@ function editar ($arrayProduto)
                 destaque = '".$arrayProduto['destaque']."',
                 desconto = '".$arrayProduto['desconto']."',
                 descricao = '".$arrayProduto['descricao']."',
-                imagem = '".$arrayProduto['imagem']."'
+                imagem = '".$arrayProduto['imagem']."',
+                idCategoria = '".$arrayProduto['idCategoria']."',
             where idProdutos = ".$arrayProduto['id'];
 
         //Chamando a função que estabelece a conexão com o BD 

@@ -1,0 +1,9 @@
+#código para ocultar a palavra index.php
+#utilizamos essa estrutura para ficar uma url mais amigavel na chamada da API 
+
+RewriteEngine On 
+Options all -Indexes
+
+DirectoryIndex index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*) http://localhost/ds2t20212/Back-End/Aula13-Mysql/crud/api/index.php?url=$1 [QSA,L]

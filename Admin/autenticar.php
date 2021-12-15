@@ -3,7 +3,7 @@
     require_once('./crud-Usuario/functions/config.php');
 
     //import do arquivo de conexão
-    require_once(SRC.'bd/conexaoMysql.php');
+    require_once(SRCU.'bd/conexaoMysql.php');
 
     $login = (string) null;
     $senha = (string) null;

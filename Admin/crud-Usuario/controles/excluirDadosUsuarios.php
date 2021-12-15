@@ -10,7 +10,7 @@
     require_once('../functions/config.php');
 
     //Import do arquivo para exluir no BD
-    require_once(SRC.'/bd/excluirUsuario.php');
+    require_once(SRCU.'/bd/excluirUsuario.php');
 
     // o id esta sendo encaminhado pela index, no link que foi realizado na iimagem do excluir
     $idUsuario = $_GET["id"];

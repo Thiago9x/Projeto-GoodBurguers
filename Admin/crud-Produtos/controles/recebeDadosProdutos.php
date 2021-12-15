@@ -44,6 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $desconto = $_POST['txtDesconto'];
     $descricao = $_POST['txtDescricao'];
     $id=(int) $_GET['id'];
+    $idCategoria = (int)$_POST['sltIdCategoria'];
     // esse nome esta chegando atraves do action do form da index, o motivo dessa variavel é para concluir o editar com o upload  de foto
     $nomeImagem = $_GET['nomeImagem'];
 
@@ -84,7 +85,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             "valor"         => $valor,
             "destaque"      => $destaque,
             "desconto"      => $desconto,
-            "descricao"     => $descricao        
+            "descricao"     => $descricao,        
+            "idCategoria"     => $idCategoria        
         );
         //validação para saber se é para inserir um novo registro
         // ou se é para atualizar um registro existente no BD

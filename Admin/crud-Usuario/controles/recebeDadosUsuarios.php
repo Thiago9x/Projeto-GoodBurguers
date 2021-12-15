@@ -8,9 +8,9 @@
 require_once('../functions/config.php');
 
 //Import do arquivo para inserir no BD
-require_once(SRC.'bd/inserirUsuario.php');
+require_once(SRCU.'bd/inserirUsuario.php');
 
-require_once(SRC.'bd/atualizarUsuario.php');
+require_once(SRCU.'bd/atualizarUsuario.php');
 
 //Declaração de variaveis
 $nome = (string) null;

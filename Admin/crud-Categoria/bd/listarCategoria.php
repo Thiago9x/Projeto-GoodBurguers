@@ -8,7 +8,7 @@
 //Import do arquivo de conexão com o BD
 require_once(SRC.'bd/conexaoMysql.php');
 
-function listar()
+function listarCategorias()
 {
     $sql = "select * from tblCategoria";
 

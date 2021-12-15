@@ -18,7 +18,8 @@ function inserir ($arrayProduto)
                     destaque,
                     desconto,
                     descricao,
-                    imagem 
+                    imagem,
+                    idCategoria
                 )
                 values
                 (
@@ -27,7 +28,8 @@ function inserir ($arrayProduto)
                     ". $arrayProduto['destaque'] .",
                     ". $arrayProduto['desconto'] .",
                     '". $arrayProduto['descricao'] ."',
-                    '". $arrayProduto['imagem'] ."'
+                    '". $arrayProduto['imagem'] ."',
+                    '". $arrayProduto['idCategoria'] ."'
                 );
             ";
             

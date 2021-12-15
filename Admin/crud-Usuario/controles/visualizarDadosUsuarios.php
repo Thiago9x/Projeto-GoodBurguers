@@ -10,7 +10,7 @@ function visualizarUsuario($id) {
     require_once('functions/config.php');
 
     //Import do arquivo para inserir no BD
-    require_once(SRC.'bd/listarUsuario.php');
+    require_once(SRCU.'bd/listarUsuario.php');
 
     // o id esta sendo encaminhado pela index, no link que foi realizado na iimagem do excluir
     $idUsuario = $id;

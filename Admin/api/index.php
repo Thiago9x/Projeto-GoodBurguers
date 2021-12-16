@@ -7,7 +7,7 @@
     header('Content-Type: application/json');
 
     // Import do arquivo de configuração do sistema
-    require_once("../crudProdutos/functionsProducts/config.php");
+    require_once("../crud-Produtos/functions/config.php");
 
     $url = (string) null;
 

@@ -6,4 +6,4 @@ Options all -Indexes
 
 DirectoryIndex index.php
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*) http://localhost/ds2t20212/Back-End/Aula13-Mysql/crud/api/index.php?url=$1 [QSA,L]
+RewriteRule ^(.*) http://localhost/ds2t20212/Back-End/Projeto-GoodBurguers-Copia/admin/api/index.php?url=$1 [QSA,L]

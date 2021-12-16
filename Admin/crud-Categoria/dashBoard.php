@@ -102,7 +102,8 @@
                     </td>
                 </tr>
                 <tr id="tblLinhas">
-                    <td class="tblColunas destaque" colspan="2"> Nome </td>
+                    <td class="tblColunas destaque" > Nome </td>
+                    <td class="tblColunas destaque" > Opções </td>
                 </tr>
                 
                 <?php 

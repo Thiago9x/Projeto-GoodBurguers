@@ -7,7 +7,10 @@
     
     $config = [
         'settings' => [
-            'displayErrorDetails' => true # change this <------
+
+    'determineRouteBeforeAppMiddleware' => true,
+    'displayErrorDetails' => true,
+    'addContentLengthHeader' => false
         ],
     ];
 
@@ -24,14 +27,14 @@
 
     // Instancia da classe Slim\App, é realizada para que possamos ter acesso aos metodos da classe
     // $app = new \Slim\App();
-
-    $app->get('/produtos/{id}', function($request, $response, $args){
+    //busca por idcategoria
+    $app->get('/produtos/{idCategoria}', function($request, $response, $args){
     
-        $id = $args['id'];
+        $idCategoria = $args['idCategoria'];
     
-        if($listDados = buscarProdutos2($id))
-            if($listDadosArray = criarArray($listDados))
-                $listDadosJSON = criarJSON($listDadosArray);
+        if($listDados = buscarIdCategoria($idCategoria))
+            if($listDadosArray = criarArrayProdutos($listDados))
+                $listDadosJSON = criarJSONProdutos($listDadosArray);
 
         if($listDadosArray)
         {
@@ -56,15 +59,15 @@
             $nome = $request->getQueryParams()['nome'];
             
             if($listDados = buscarNomeProdutos($nome))
-            if($listDadosArray = criarArray($listDados))
-                $listDadosJSON = criarJSON($listDadosArray);
+            if($listDadosArray = criarArrayProdutos($listDados))
+                $listDadosJSON = criarJSONProdutos($listDadosArray);
 
         }else
         {
         
-        if($listDados = exibirProdutos())
-            if($listDadosArray = criarArray($listDados))
-                $listDadosJSON = criarJSON($listDadosArray);
+        if($listDados = exibirCategoriasProdutos())
+            if($listDadosArray = criarArrayProdutos($listDados))
+                $listDadosJSON = criarJSONProdutos($listDadosArray);
             } 
 
         if($listDadosArray)
@@ -82,4 +85,3 @@
     // Carrega todos os EndPoint para a execução
     $app->run();
     
-?>

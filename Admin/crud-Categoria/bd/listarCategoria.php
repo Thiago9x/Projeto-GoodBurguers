@@ -33,5 +33,17 @@ function buscar($idCategoria){
      
     return $select;
 }
-
+function buscarNome ($idProduto)
+{
+    $sql = "select * from tblCategoria
+	        where tblCategoria.nome like "%'.$idCategoria.'%"";
+    
+    //Abre a conexão com o BD
+    $conexao = conexaoMysql();
+    
+    //Solicita aoBD a execução do script SQL
+    $select = mysqli_query($conexao, $sql);
+    
+    return $select;
+}
 ?>

@@ -15,5 +15,43 @@ function exibirCategorias(){
 }
 
 
+function buscarCategoria($id)
+    {
+        $dados = buscar($id);
+
+        return $dados;
+    }
+
+
+function criarArrayCategorias($objeto)
+{
+    $cont = (int) 0;
+
+    while($rsDados = mysqli_fetch_assoc($objeto))
+    {
+        $arrayDados[$cont] = array(
+        "id"           => $rsDados['idCategoria'],
+        "nome"         => $rsDados['nome'],
+    );
+        $cont+=1;
+    }
+    if(isset($arrayDados))
+        return $arrayDados;
+    else
+        return false;
+}
+
+function criarJSONCategorias($arrayDados)
+        {
+
+            header("content-type:application/json");
+
+            $listJSON = json_encode($arrayDados);
+
+            if(isset($listJSON))
+                return $listJSON;
+            else
+            return false;
+        }
 
 ?>

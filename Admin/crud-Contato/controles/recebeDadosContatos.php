@@ -54,7 +54,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             "email"     => $email,
             "nome"      => $nome,
             "telefone"  => $telefone,
-
             "id"        => $id
         );
   
@@ -66,11 +65,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             echo("
                 <script>
                     alert('". BD_MSG_INSERIR ."');
-                    window.location.href = '../../../index.php';
+                    window.history.back();
                 </script>
             ");
         else
-            echo(BD_MSG_ERRO );
+        echo("
+        <script>
+            alert('". BD_MSG_ERRO ."');
+            window.history.back();
+        </script>
+    ");
         }
     }
     

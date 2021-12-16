@@ -114,7 +114,7 @@
                 <tr id="tblLinhas">
                     <td class="tblColunas destaque"> Nome </td>
                     <td class="tblColunas destaque"> Senha </td>
-                    <td class="tblColunas destaque"> Ações</td>
+                    <td class="tblColunas destaque"> Opções</td>
                 </tr>
                 
                 <?php 

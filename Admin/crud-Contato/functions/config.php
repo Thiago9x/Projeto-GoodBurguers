@@ -4,6 +4,7 @@
     Data: 15/09/2021
     Autor: Marcel
 *********************************************/
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 //constante para indicar a pasta raiz do servidor + a estrutara de diretório até o meu projeto
 define ('SRC', $_SERVER['DOCUMENT_ROOT'].'/ds2t20212/Back-End/Projeto-GoodBurguers-Copia/Admin/crud-Contato/');
 

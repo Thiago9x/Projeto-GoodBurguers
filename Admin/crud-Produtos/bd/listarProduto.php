@@ -38,4 +38,30 @@ function buscar ($idProduto)
     
     return $select;
 }
+function buscarNome ($nome)
+{
+    $sql = "select * from tblProdutos
+	        where tblProdutos.nome like '%".$nome."%'";
+    
+    //Abre a conexão com o BD
+    $conexao = conexaoMysql();
+    
+    //Solicita aoBD a execução do script SQL
+    $select = mysqli_query($conexao, $sql);
+    
+    return $select;
+}
+function buscarId ($idCategoria)
+{
+    $sql = "select * from tblProdutos
+	        where tblProdutos.idCategoria = ".$idCategoria;
+    
+    //Abre a conexão com o BD
+    $conexao = conexaoMysql();
+    
+    //Solicita aoBD a execução do script SQL
+    $select = mysqli_query($conexao, $sql);
+    
+    return $select;
+}
 ?>
